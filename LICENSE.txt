@@ -1,0 +1,17 @@
+Copyright (c) 2026 Patrick Arthofer
+
+All rights reserved.
+
+This project is a personal portfolio and demonstration system.
+
+No part of this repository or website may be copied, reused, modified, distributed, republished, or incorporated into other projects without prior written permission from the author.
+
+This restriction explicitly includes, but is not limited to:
+- source code
+- scripts
+- HTML, CSS, and JavaScript
+- photographs and image derivatives
+- metadata, tags, captions, and generated descriptions
+- database structures and generated outputs
+
+Viewing the public portfolio does not grant any license or usage rights.
