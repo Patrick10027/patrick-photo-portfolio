@@ -1,0 +1,223 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    background: #ffffff; /* Assuming you want a white background */
+    font-family: 'Inter', sans-serif;
+
+  }
+  .image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the images horizontally */
+  align-content: start; /* Align the content to the start vertically */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+  width: 100%;
+  padding: 0px; /* No padding at the edges */
+  margin: 0; /* No margin at the edges */
+  outline: 6px solid #ffffff; /* Adds a grey outline around the image on hover */
+  outline-offset: -6px; /* Pulls the outline into the image to mimic an inner border */
+
+}
+  .image {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    flex-grow: 1;
+
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    outline: 3px solid #ffffff; /* Adds a grey outline around the image on hover */
+    outline-offset: -3px; /* Pulls the outline into the image to mimic an inner border */
+
+
+  }
+  .image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    left: 0px;
+    /*transition: transform 0.2s ease-in-out;  Smooth transitions for transformations and shadow */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+
+  }
+
+  .image img:hover {
+    transform: scale(1.000); /* Slightly enlarges the image on hover */
+    /*transition: transform 0.2s ease-in-out;  Smooth transition effect */
+    cursor: pointer; /* Changes the cursor to indicate clickable items */
+    /*box-shadow: inset 0 0 0 2px grey;  Creates an inner border effect with a grey shadow */
+    outline: 4px solid #ffffff; /* Adds a grey outline around the image on hover */
+    outline-offset: -4px; /* Pulls the outline into the image to mimic an inner border */
+
+  }
+
+
+  /* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px; /* Your working version */
+  box-sizing: border-box;
+  cursor: pointer; /* For outside click */
+}
+
+.modal-content {
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto; /* Center horizontally */
+  cursor: default;
+}
+
+.caption {
+  text-align: center;
+  color: #000000;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 45px; /* Increased offset from top */
+  right: 20px; /* Increased offset from right */
+  color: #aaaaaa;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding: 5px;
+  background-color: rgba(200, 200, 200, 0.8);
+  cursor: pointer;
+  z-index: 2; /* Ensure above navigation areas */
+}
+
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Center vertically relative to modal */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  height: 80vh; /* Match max-height of modal-content */
+  width: 45%; /* Keep wider clickable area */
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+  justify-content: flex-start;
+  padding-left: 25px; /* Closer to edge */
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  justify-content: flex-end;
+  padding-right: 25px;
+}
+
+.prev:hover {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 100%);
+  font-size: 35px;
+}
+
+.next:hover {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, transparent 100%);
+  font-size: 35px;
+}
+
+
+
+
+
+
+
+
+
+/* Container for all image tiles */
+..categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* One column when screen < 300px */
+  gap: 16px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* 5:4 aspect ratio wrapper using padding trick */
+.category {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 5 / 4; /* Modern CSS way! */
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+/* If you need to support older browsers: */
+/*
+.category::before {
+  content: "";
+  display: block;
+  padding-top: 80%;
+}
+*/
+
+.category img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Zooms and crops to fill the container */
+  object-position: center; /* Keeps subject centered */
+  transition: transform 0.3s ease;
+}
+
+.category:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay text */
+.category .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 0;
+  font-size: 1rem;
+}

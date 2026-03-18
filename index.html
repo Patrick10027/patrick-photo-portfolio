@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photography</title>
+<link rel="stylesheet" href="./assets/css/photographyStyle.css">
+<link rel="stylesheet" href="./assets/css/navbarstyles.css">
+<link rel="stylesheet" href="./assets/css/stylePhotoNavBar.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.page-copy { max-width: 1100px; margin: 24px auto; padding: 0 20px; line-height: 1.6; color: #333; }
+.toolbar { max-width: 1100px; margin: 0 auto 18px; padding: 0 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.toolbar input { flex: 1; min-width: 220px; padding: 10px 12px; border: 1px solid #ddd; border-radius: 10px; }
+.toolbar select, .toolbar button { padding: 10px 12px; border: 1px solid #ddd; border-radius: 10px; background: white; }
+.site-footer { max-width: 1100px; margin: 40px auto; padding: 20px; color: #666; font-size: .95rem; }
+</style>
+</head>
+<body>
+<header class="navbar general-navbar">
+  <ul class="nav-links" id="main-nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Urban Planning</a></li>
+    <li class="active"><a href="./index.html">Photography</a></li>
+    <li><a href="#">Coding</a></li>
+    <li><a href="#">Statistics</a></li>
+    <li><a href="#">Psychology</a></li>
+    <li><a href="#">Videography</a></li>
+  </ul>
+</header>
+<nav class="photo-navbar">
+  <div class="logo">Patrick Arthofer</div>
+  <ul class="nav-links">
+    <li class="active"><a href="./index.html">home</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#types">types</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="right-controls">
+    <div class="icon"><a href="https://instagram.com/arthofer_fotografie" target="_blank"><img src="./assets/symbols/1161953_instagram_icon.svg" alt="Instagram" style="width:24px;height:24px;"></a></div>
+  </div>
+</nav>
+<div class="page-copy"><p>Welcome to my photography portfolio. This static gallery is generated from the Lightroom delivery pipeline and published as a GitHub Pages-compatible site.</p></div>
+<div class="toolbar">
+  <input id="searchInput" placeholder="Search tags, categories, motifs, wildlife, environment, camera...">
+  <select id="categoryFilter"><option value="">All categories</option></select>
+  <button id="minusBtn">-</button><span id="heightValue">Target Picture Size</span><button id="plusBtn">+</button>
+</div>
+<div class="image-container" id="imageContainer"></div>
+<div id="imageModal" class="modal"><span class="close">&times;</span><a class="prev">&#10094;</a><img class="modal-content" id="img01"><a class="next">&#10095;</a><div class="caption"></div></div>
+<section id="projects"><h3>More Photography Projects<\/h3><div class="categories"><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Rebecca IR"><div class="overlay">Rebecca IR<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Wildlife"><div class="overlay">Wildlife<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Portraits"><div class="overlay">Portraits<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Astro"><div class="overlay">Astro<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Infrared"><div class="overlay">Infrared<\/div><\/div><\/div></section>
+<section id="types"><h3>More Photography Types<\/h3><div class="categories"><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Landscape"><div class="overlay">Landscape<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Wildlife"><div class="overlay">Wildlife<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Portraits"><div class="overlay">Portraits<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Astro"><div class="overlay">Astro<\/div><\/div><div class="category"><img src="./assets/images/placeholder-project.jpg" alt="Infrared"><div class="overlay">Infrared<\/div><\/div><\/div></section>
+<div class="site-footer">Static site build: 6 published image(s).</div>
+<script src="./assets/js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+.photo-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 40px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.photo-navbar .logo {
+  justify-self: start;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.photo-navbar .nav-links {
+  justify-self: center;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.photo-navbar .nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover underline in grey */
+.photo-navbar .nav-links li a:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: grey;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Active link underline in black */
+.photo-navbar .nav-links li.active a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.photo-navbar .right-controls {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 20px;
+}
+
+.photo-navbar .icon a {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Hamburger menu */
+.photo-navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.photo-navbar .hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: black;
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .photo-navbar .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    display: none;
+    border-top: 1px solid #eee;
+    z-index: 999;
+  }
+
+  .photo-navbar .nav-links.active {
+    display: flex;
+  }
+
+  .photo-navbar .hamburger {
+    display: flex;
+  }
+}
+
+.photo-navbar .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.photo-navbar .hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.photo-navbar .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.photo-navbar .hamburger span {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .photo-navbar {
+    flex-wrap: wrap;
+  }
+
+  .photo-navbar .nav-links {
+    width: 100%;
+  }
+}
