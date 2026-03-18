@@ -1,76 +1,81 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: auto;
-    background: #ffffff; /* Assuming you want a white background */
-    font-family: 'Inter', sans-serif;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow: auto;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
 
-  }
-  .image-container {
+.image-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the images horizontally */
-  align-content: start; /* Align the content to the start vertically */
-  align-items: flex-start; /* Align items to the start of the cross axis */
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
   width: 100%;
-  padding: 0px; /* No padding at the edges */
-  margin: 0; /* No margin at the edges */
-  outline: 6px solid #ffffff; /* Adds a grey outline around the image on hover */
-  outline-offset: -6px; /* Pulls the outline into the image to mimic an inner border */
-
+  padding: 0;
+  margin: 0;
+  outline: 6px solid #ffffff;
+  outline-offset: -6px;
+  box-sizing: border-box;
 }
-  .image {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    flex-grow: 1;
 
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
-    outline: 3px solid #ffffff; /* Adds a grey outline around the image on hover */
-    outline-offset: -3px; /* Pulls the outline into the image to mimic an inner border */
+.image {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+  outline: 3px solid #ffffff;
+  outline-offset: -3px;
+  background: #f8f8f8;
+}
 
+.image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
 
-  }
-  .image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-    left: 0px;
-    /*transition: transform 0.2s ease-in-out;  Smooth transitions for transformations and shadow */
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers the image vertically */
+.image img:hover {
+  cursor: pointer;
+  outline: 4px solid #ffffff;
+  outline-offset: -4px;
+}
 
-  }
+.image-load-failed {
+  background: #efefef;
+}
 
-  .image img:hover {
-    transform: scale(1.000); /* Slightly enlarges the image on hover */
-    /*transition: transform 0.2s ease-in-out;  Smooth transition effect */
-    cursor: pointer; /* Changes the cursor to indicate clickable items */
-    /*box-shadow: inset 0 0 0 2px grey;  Creates an inner border effect with a grey shadow */
-    outline: 4px solid #ffffff; /* Adds a grey outline around the image on hover */
-    outline-offset: -4px; /* Pulls the outline into the image to mimic an inner border */
+.gallery-empty-state {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  color: #666666;
+  font-size: 1rem;
+}
 
-  }
-
-
-  /* Modal Styles */
+/* Modal Styles */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 2000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 40px; /* Your working version */
+  background-color: rgba(255, 255, 255, 0.88);
+  padding: 40px;
   box-sizing: border-box;
-  cursor: pointer; /* For outside click */
+  cursor: pointer;
 }
 
 .modal-content {
@@ -80,7 +85,7 @@ body, html {
   width: auto;
   height: auto;
   object-fit: contain;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto;
   cursor: default;
 }
 
@@ -89,12 +94,13 @@ body, html {
   color: #000000;
   font-size: 1rem;
   margin-top: 10px;
+  max-width: 90%;
 }
 
 .close {
   position: absolute;
-  top: 45px; /* Increased offset from top */
-  right: 20px; /* Increased offset from right */
+  top: 45px;
+  right: 20px;
   color: #aaaaaa;
   font-size: 40px;
   font-weight: bold;
@@ -102,7 +108,7 @@ body, html {
   padding: 5px;
   background-color: rgba(200, 200, 200, 0.8);
   cursor: pointer;
-  z-index: 2; /* Ensure above navigation areas */
+  z-index: 2001;
 }
 
 .close:hover,
@@ -115,10 +121,10 @@ body, html {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%; /* Center vertically relative to modal */
-  transform: translateY(-50%); /* Adjust for vertical centering */
-  height: 80vh; /* Match max-height of modal-content */
-  width: 45%; /* Keep wider clickable area */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80vh;
+  width: 45%;
   padding: 0;
   margin: 0;
   color: #000000;
@@ -129,17 +135,19 @@ body, html {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  z-index: 2000;
 }
 
 .prev {
   left: 0;
   border-radius: 3px 0 0 3px;
   justify-content: flex-start;
-  padding-left: 25px; /* Closer to edge */
+  padding-left: 25px;
 }
+
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 3px 3px 0;
   justify-content: flex-end;
   padding-right: 25px;
 }
@@ -158,51 +166,32 @@ body, html {
   font-size: 35px;
 }
 
-
-
-
-
-
-
-
-
-/* Container for all image tiles */
-..categories {
+/* Footer category cards */
+.categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* One column when screen < 300px */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   gap: 16px;
   padding: 20px;
   justify-content: center;
 }
 
-/* 5:4 aspect ratio wrapper using padding trick */
 .category {
   position: relative;
   width: 300px;
-  aspect-ratio: 5 / 4; /* Modern CSS way! */
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #ddd;
+  background-color: #dddddd;
 }
-
-/* If you need to support older browsers: */
-/*
-.category::before {
-  content: "";
-  display: block;
-  padding-top: 80%;
-}
-*/
 
 .category img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Zooms and crops to fill the container */
-  object-position: center; /* Keeps subject centered */
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
 }
 
@@ -210,7 +199,6 @@ body, html {
   transform: scale(1.05);
 }
 
-/* Overlay text */
 .category .overlay {
   position: absolute;
   bottom: 0;
@@ -220,4 +208,29 @@ body, html {
   color: white;
   padding: 8px 0;
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 20px;
+  }
+
+  .close {
+    top: 20px;
+    right: 12px;
+  }
+
+  .prev,
+  .next {
+    width: 30%;
+    font-size: 18px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+  }
+
+  .category {
+    width: 220px;
+  }
 }
